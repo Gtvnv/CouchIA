@@ -1,0 +1,6 @@
+@CouchIA.WebUI_HostAddress = http://localhost:5244
+
+GET {{CouchIA.WebUI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

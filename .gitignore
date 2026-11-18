@@ -1,0 +1,13 @@
+# IDE
+.vs/
+.idea/
+*.user
+*.suo
+
+# Segredos e configuração local
+.env
+.env.*
+appsettings.*.local.json
+
+# Metadados de execução do Kiro
+.kiro/specs/**/tasks.meta.json

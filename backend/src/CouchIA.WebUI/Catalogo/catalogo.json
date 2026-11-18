@@ -1,0 +1,235 @@
+{
+  "areas": [
+    {
+      "id": "backend",
+      "nome": "Desenvolvimento Backend",
+      "descricao": "Construção de APIs e serviços do lado do servidor, com persistência de dados, testes automatizados e empacotamento para implantação.",
+      "habilidades": [
+        { "id": "logica-programacao", "prioridade": "essencial" },
+        { "id": "git", "prioridade": "essencial" },
+        { "id": "sql", "prioridade": "essencial" },
+        { "id": "csharp", "prioridade": "essencial" },
+        { "id": "api-rest", "prioridade": "essencial" },
+        { "id": "aspnet-core", "prioridade": "essencial" },
+        { "id": "ef-core", "prioridade": "importante" },
+        { "id": "testes-automatizados", "prioridade": "importante" },
+        { "id": "docker", "prioridade": "desejavel" }
+      ]
+    },
+    {
+      "id": "frontend",
+      "nome": "Desenvolvimento Frontend",
+      "descricao": "Criação de interfaces web interativas e acessíveis, do HTML e CSS até aplicações de página única com React e TypeScript.",
+      "habilidades": [
+        { "id": "logica-programacao", "prioridade": "essencial" },
+        { "id": "git", "prioridade": "importante" },
+        { "id": "html-css", "prioridade": "essencial" },
+        { "id": "javascript", "prioridade": "essencial" },
+        { "id": "typescript", "prioridade": "importante" },
+        { "id": "react", "prioridade": "essencial" },
+        { "id": "testes-automatizados", "prioridade": "desejavel" }
+      ]
+    },
+    {
+      "id": "dados",
+      "nome": "Ciência de Dados",
+      "descricao": "Análise de dados e construção de modelos preditivos, com Python, estatística, manipulação de tabelas e aprendizado de máquina.",
+      "habilidades": [
+        { "id": "logica-programacao", "prioridade": "essencial" },
+        { "id": "git", "prioridade": "desejavel" },
+        { "id": "sql", "prioridade": "essencial" },
+        { "id": "python", "prioridade": "essencial" },
+        { "id": "estatistica", "prioridade": "essencial" },
+        { "id": "pandas", "prioridade": "importante" },
+        { "id": "machine-learning", "prioridade": "importante" }
+      ]
+    }
+  ],
+  "habilidades": [
+    {
+      "id": "logica-programacao",
+      "nome": "Lógica de Programação",
+      "descricao": "Raciocínio para decompor problemas em passos. Inclui variáveis, condicionais, laços, funções e estruturas de dados básicas.",
+      "horasEstimadas": 40,
+      "recursos": [
+        { "titulo": "CS50: Introdução à Ciência da Computação (Harvard)", "url": "https://cs50.harvard.edu/x/" },
+        { "titulo": "freeCodeCamp: Aprenda a programar", "url": "https://www.freecodecamp.org/learn" }
+      ],
+      "preRequisitos": []
+    },
+    {
+      "id": "git",
+      "nome": "Git e Controle de Versão",
+      "descricao": "Uso de Git para versionar código, criar branches, resolver conflitos e colaborar por pull requests.",
+      "horasEstimadas": 15,
+      "recursos": [
+        { "titulo": "Pro Git (livro oficial)", "url": "https://git-scm.com/book/pt-br/v2" },
+        { "titulo": "GitHub Skills", "url": "https://skills.github.com/" }
+      ],
+      "preRequisitos": []
+    },
+    {
+      "id": "sql",
+      "nome": "SQL e Bancos Relacionais",
+      "descricao": "Consulta e modelagem de dados relacionais. Cobre SELECT, JOIN, agregações, índices e normalização.",
+      "horasEstimadas": 40,
+      "recursos": [
+        { "titulo": "SQLBolt: lições interativas", "url": "https://sqlbolt.com/" },
+        { "titulo": "PostgreSQL Tutorial", "url": "https://www.postgresqltutorial.com/" }
+      ],
+      "preRequisitos": []
+    },
+    {
+      "id": "csharp",
+      "nome": "C# e .NET",
+      "descricao": "Linguagem C# moderna e a plataforma .NET. Aborda orientação a objetos, LINQ, async/await e coleções.",
+      "horasEstimadas": 80,
+      "recursos": [
+        { "titulo": "Documentação oficial do C# (Microsoft Learn)", "url": "https://learn.microsoft.com/pt-br/dotnet/csharp/" },
+        { "titulo": "Trilha C# do Microsoft Learn", "url": "https://learn.microsoft.com/pt-br/training/paths/get-started-c-sharp-part-1/" }
+      ],
+      "preRequisitos": ["logica-programacao"]
+    },
+    {
+      "id": "api-rest",
+      "nome": "Design de APIs REST",
+      "descricao": "Projeto de APIs HTTP com recursos, verbos, códigos de status e versionamento. Inclui autenticação e documentação com OpenAPI.",
+      "horasEstimadas": 30,
+      "recursos": [
+        { "titulo": "Microsoft: diretrizes de design de API REST", "url": "https://learn.microsoft.com/pt-br/azure/architecture/best-practices/api-design" },
+        { "titulo": "MDN: Visão geral do HTTP", "url": "https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Overview" }
+      ],
+      "preRequisitos": ["logica-programacao"]
+    },
+    {
+      "id": "aspnet-core",
+      "nome": "ASP.NET Core",
+      "descricao": "Desenvolvimento de APIs web com ASP.NET Core. Cobre controllers, injeção de dependência, middleware e configuração.",
+      "horasEstimadas": 60,
+      "recursos": [
+        { "titulo": "Documentação do ASP.NET Core", "url": "https://learn.microsoft.com/pt-br/aspnet/core/" },
+        { "titulo": "Tutorial: criar uma API web com ASP.NET Core", "url": "https://learn.microsoft.com/pt-br/aspnet/core/tutorials/first-web-api" }
+      ],
+      "preRequisitos": ["csharp", "api-rest"]
+    },
+    {
+      "id": "ef-core",
+      "nome": "Entity Framework Core",
+      "descricao": "Mapeamento objeto-relacional com EF Core. Inclui migrations, consultas LINQ e boas práticas de desempenho.",
+      "horasEstimadas": 35,
+      "recursos": [
+        { "titulo": "Documentação do Entity Framework Core", "url": "https://learn.microsoft.com/pt-br/ef/core/" }
+      ],
+      "preRequisitos": ["csharp", "sql"]
+    },
+    {
+      "id": "testes-automatizados",
+      "nome": "Testes Automatizados",
+      "descricao": "Escrita de testes unitários e de integração para garantir o comportamento do código. Aborda xUnit ou Jest, mocks e organização dos testes.",
+      "horasEstimadas": 30,
+      "recursos": [
+        { "titulo": "Testes unitários em C# com xUnit (Microsoft Learn)", "url": "https://learn.microsoft.com/pt-br/dotnet/core/testing/unit-testing-csharp-with-xunit" },
+        { "titulo": "Jest: primeiros passos", "url": "https://jestjs.io/pt-BR/docs/getting-started" }
+      ],
+      "preRequisitos": ["logica-programacao"]
+    },
+    {
+      "id": "docker",
+      "nome": "Docker e Contêineres",
+      "descricao": "Empacotamento de aplicações em contêineres. Inclui Dockerfile, imagens, volumes e Docker Compose.",
+      "horasEstimadas": 20,
+      "recursos": [
+        { "titulo": "Docker: Get started", "url": "https://docs.docker.com/get-started/" },
+        { "titulo": "Play with Docker", "url": "https://training.play-with-docker.com/" }
+      ],
+      "preRequisitos": ["git"]
+    },
+    {
+      "id": "html-css",
+      "nome": "HTML e CSS",
+      "descricao": "Estruturação e estilização de páginas web. Cobre HTML semântico, Flexbox, Grid, responsividade e acessibilidade básica.",
+      "horasEstimadas": 40,
+      "recursos": [
+        { "titulo": "MDN: Aprendendo desenvolvimento web", "url": "https://developer.mozilla.org/pt-BR/docs/Learn" },
+        { "titulo": "web.dev: Learn CSS", "url": "https://web.dev/learn/css" }
+      ],
+      "preRequisitos": []
+    },
+    {
+      "id": "javascript",
+      "nome": "JavaScript",
+      "descricao": "Linguagem da web para criar comportamento nas páginas. Inclui DOM, módulos, promises, async/await e consumo de APIs com fetch.",
+      "horasEstimadas": 60,
+      "recursos": [
+        { "titulo": "JavaScript.info", "url": "https://javascript.info/" },
+        { "titulo": "MDN: Guia de JavaScript", "url": "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide" }
+      ],
+      "preRequisitos": ["logica-programacao", "html-css"]
+    },
+    {
+      "id": "typescript",
+      "nome": "TypeScript",
+      "descricao": "Superconjunto tipado de JavaScript. Aborda tipos, interfaces, generics e configuração do compilador.",
+      "horasEstimadas": 30,
+      "recursos": [
+        { "titulo": "TypeScript Handbook", "url": "https://www.typescriptlang.org/docs/handbook/intro.html" }
+      ],
+      "preRequisitos": ["javascript"]
+    },
+    {
+      "id": "react",
+      "nome": "React",
+      "descricao": "Biblioteca para construir interfaces baseadas em componentes. Cobre hooks, estado, efeitos, roteamento e consumo de APIs.",
+      "horasEstimadas": 60,
+      "recursos": [
+        { "titulo": "Documentação oficial do React", "url": "https://react.dev/learn" },
+        { "titulo": "React Router: tutorial", "url": "https://reactrouter.com/en/main/start/tutorial" }
+      ],
+      "preRequisitos": ["javascript"]
+    },
+    {
+      "id": "python",
+      "nome": "Python",
+      "descricao": "Linguagem versátil para scripts e análise de dados. Inclui tipos de dados, funções, módulos, ambientes virtuais e tratamento de erros.",
+      "horasEstimadas": 50,
+      "recursos": [
+        { "titulo": "Tutorial oficial do Python", "url": "https://docs.python.org/pt-br/3/tutorial/" },
+        { "titulo": "Python para Zumbis", "url": "https://www.pythonparazumbis.com.br/" }
+      ],
+      "preRequisitos": ["logica-programacao"]
+    },
+    {
+      "id": "estatistica",
+      "nome": "Estatística para Dados",
+      "descricao": "Fundamentos para interpretar dados. Cobre medidas descritivas, probabilidade, distribuições, testes de hipótese e regressão.",
+      "horasEstimadas": 60,
+      "recursos": [
+        { "titulo": "Khan Academy: Estatística e probabilidade", "url": "https://pt.khanacademy.org/math/statistics-probability" },
+        { "titulo": "OpenIntro Statistics (livro aberto)", "url": "https://www.openintro.org/book/os/" }
+      ],
+      "preRequisitos": []
+    },
+    {
+      "id": "pandas",
+      "nome": "Análise de Dados com Pandas",
+      "descricao": "Manipulação de dados tabulares com pandas. Inclui limpeza, filtros, agrupamentos, junções e visualização básica.",
+      "horasEstimadas": 35,
+      "recursos": [
+        { "titulo": "Documentação do pandas: Getting started", "url": "https://pandas.pydata.org/docs/getting_started/index.html" },
+        { "titulo": "Kaggle Learn: Pandas", "url": "https://www.kaggle.com/learn/pandas" }
+      ],
+      "preRequisitos": ["python"]
+    },
+    {
+      "id": "machine-learning",
+      "nome": "Machine Learning",
+      "descricao": "Construção e avaliação de modelos preditivos supervisionados e não supervisionados. Aborda validação cruzada, métricas e uso do scikit-learn.",
+      "horasEstimadas": 80,
+      "recursos": [
+        { "titulo": "scikit-learn: User Guide", "url": "https://scikit-learn.org/stable/user_guide.html" },
+        { "titulo": "Kaggle Learn: Intro to Machine Learning", "url": "https://www.kaggle.com/learn/intro-to-machine-learning" }
+      ],
+      "preRequisitos": ["python", "estatistica", "pandas"]
+    }
+  ]
+}

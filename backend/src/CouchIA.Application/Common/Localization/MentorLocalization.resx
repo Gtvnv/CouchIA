@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="MensagemTamanhoInvalido" xml:space="preserve"><value>A mensagem deve ter de 1 a 2.000 caracteres e não pode conter apenas espaços em branco.</value></data>
+  <data name="ClientMessageIdObrigatorio" xml:space="preserve"><value>O identificador da mensagem é obrigatório.</value></data>
+  <data name="ConfirmacaoExclusaoObrigatoria" xml:space="preserve"><value>É necessário confirmar explicitamente a exclusão dos dados.</value></data>
+  <data name="DisponibilidadeSemanalInvalida" xml:space="preserve"><value>A disponibilidade semanal deve ser um número inteiro de 1 a 168 horas.</value></data>
+  <data name="DisponibilidadeSemanalObrigatoria" xml:space="preserve"><value>Informe quantas horas por semana você pode dedicar aos estudos (de 1 a 168) para gerar o plano.</value></data>
+  <data name="AreaNaoEncontrada" xml:space="preserve"><value>A área de atuação informada não existe no catálogo.</value></data>
+  <data name="AreaObrigatoria" xml:space="preserve"><value>A área de atuação é obrigatória.</value></data>
+  <data name="FeedbackTipoInvalido" xml:space="preserve"><value>O tipo de feedback deve ser "útil" ou "não útil".</value></data>
+  <data name="FeedbackMotivoTamanhoInvalido" xml:space="preserve"><value>O motivo do feedback deve ter até 500 caracteres.</value></data>
+  <data name="FeedbackAreaNaoRecomendada" xml:space="preserve"><value>Só é possível dar feedback sobre uma área recomendada.</value></data>
+  <data name="HabilidadeInexistente" xml:space="preserve"><value>Uma ou mais habilidades informadas não existem no catálogo.</value></data>
+  <data name="ProblemaValidacaoTitulo" xml:space="preserve"><value>Dados inválidos</value></data>
+  <data name="ProblemaValidacaoDetalhe" xml:space="preserve"><value>Um ou mais campos são inválidos. Corrija e tente novamente.</value></data>
+  <data name="ProblemaSessaoNaoEncontradaTitulo" xml:space="preserve"><value>Sessão não encontrada</value></data>
+  <data name="ProblemaSessaoNaoEncontradaDetalhe" xml:space="preserve"><value>A sessão não existe, foi excluída ou expirou. Inicie uma nova sessão.</value></data>
+  <data name="ProblemaPlanoNaoEncontradoTitulo" xml:space="preserve"><value>Plano não encontrado</value></data>
+  <data name="ProblemaPlanoNaoEncontradoDetalhe" xml:space="preserve"><value>O plano solicitado não existe nesta sessão.</value></data>
+  <data name="ProblemaRespostaLlmInvalidaTitulo" xml:space="preserve"><value>Resposta da IA indisponível</value></data>
+  <data name="ProblemaRespostaLlmInvalidaDetalhe" xml:space="preserve"><value>Não foi possível processar a resposta da IA. Sua mensagem foi preservada; tente reenviá-la.</value></data>
+  <data name="ProblemaLlmTimeoutTitulo" xml:space="preserve"><value>A IA demorou para responder</value></data>
+  <data name="ProblemaLlmTimeoutDetalhe" xml:space="preserve"><value>A IA não respondeu a tempo. Sua mensagem foi preservada; tente reenviá-la.</value></data>
+  <data name="ProblemaRecomendacoesIndisponiveisTitulo" xml:space="preserve"><value>Recomendações indisponíveis</value></data>
+  <data name="ProblemaRecomendacoesIndisponiveisDetalhe" xml:space="preserve"><value>Não foi possível gerar as recomendações agora. Seu perfil foi mantido; tente novamente.</value></data>
+  <data name="ProblemaMapaIndisponivelTitulo" xml:space="preserve"><value>Mapa de habilidades indisponível</value></data>
+  <data name="ProblemaMapaIndisponivelDetalhe" xml:space="preserve"><value>Não foi possível carregar o mapa de habilidades. Tente novamente.</value></data>
+  <data name="ProblemaExportacaoFalhouTitulo" xml:space="preserve"><value>Falha na exportação</value></data>
+  <data name="ProblemaExportacaoFalhouDetalhe" xml:space="preserve"><value>Não foi possível exportar o plano. Seu plano foi mantido; tente novamente.</value></data>
+  <data name="ProblemaEntrevistaSemRespostasTitulo" xml:space="preserve"><value>Entrevista sem respostas</value></data>
+  <data name="ProblemaEntrevistaSemRespostasDetalhe" xml:space="preserve"><value>Responda a ao menos uma categoria da entrevista antes de encerrá-la.</value></data>
+  <data name="ProblemaCatalogoIndisponivelTitulo" xml:space="preserve"><value>Catálogo indisponível</value></data>
+  <data name="ProblemaCatalogoIndisponivelDetalhe" xml:space="preserve"><value>O catálogo de carreiras está indisponível no momento. Tente novamente mais tarde.</value></data>
+  <data name="ProblemaPlanoNaoGeradoTitulo" xml:space="preserve"><value>Plano não gerado</value></data>
+  <data name="ProblemaPlanoNaoGeradoDetalhe" xml:space="preserve"><value>Não foi possível gerar o plano. Seu perfil e seus planos anteriores foram mantidos; tente novamente.</value></data>
+  <data name="ProblemaPlanoSemHabilidadesPendentesTitulo" xml:space="preserve"><value>Nenhuma habilidade pendente</value></data>
+  <data name="ProblemaPlanoSemHabilidadesPendentesDetalhe" xml:space="preserve"><value>Você já domina todas as habilidades desta área, então não há plano a gerar.</value></data>
+  <data name="ProblemaPlanoInviavelTitulo" xml:space="preserve"><value>Plano inviável com a disponibilidade informada</value></data>
+  <data name="ProblemaPlanoInviavelDetalhe" xml:space="preserve"><value>Uma habilidade levaria mais de 12 semanas na sua disponibilidade semanal. Aumente as horas por semana e tente novamente.</value></data>
+  <data name="ProblemaPlanoExcedeLimiteEtapasTitulo" xml:space="preserve"><value>Plano longo demais</value></data>
+  <data name="ProblemaPlanoExcedeLimiteEtapasDetalhe" xml:space="preserve"><value>O plano precisaria de mais de 20 etapas. Escolha uma área com menos habilidades pendentes ou marque mais habilidades como dominadas.</value></data>
+  <data name="ProblemaPlanoExcedeLimiteDuracaoTitulo" xml:space="preserve"><value>Plano longo demais</value></data>
+  <data name="ProblemaPlanoExcedeLimiteDuracaoDetalhe" xml:space="preserve"><value>O plano duraria mais de 104 semanas. Aumente as horas por semana ou marque mais habilidades como dominadas.</value></data>
+  <data name="ProblemaAcessoNegadoTitulo" xml:space="preserve"><value>Acesso negado</value></data>
+  <data name="ProblemaAcessoNegadoDetalhe" xml:space="preserve"><value>Você não tem permissão para acessar este recurso.</value></data>
+  <data name="ProblemaRequisicaoInvalidaTitulo" xml:space="preserve"><value>Requisição inválida</value></data>
+  <data name="ProblemaRequisicaoInvalidaDetalhe" xml:space="preserve"><value>A requisição não pôde ser interpretada. Verifique os dados enviados.</value></data>
+  <data name="ProblemaCorpoGrandeTitulo" xml:space="preserve"><value>Requisição grande demais</value></data>
+  <data name="ProblemaCorpoGrandeDetalhe" xml:space="preserve"><value>O corpo da requisição excede o tamanho máximo permitido.</value></data>
+  <data name="ProblemaLimiteRequisicoesTitulo" xml:space="preserve"><value>Muitas requisições</value></data>
+  <data name="ProblemaLimiteRequisicoesDetalhe" xml:space="preserve"><value>Você fez muitas requisições em pouco tempo. Aguarde um momento e tente novamente.</value></data>
+  <data name="ProblemaErroInternoTitulo" xml:space="preserve"><value>Erro inesperado</value></data>
+  <data name="ProblemaErroInternoDetalhe" xml:space="preserve"><value>Ocorreu um erro inesperado. Tente novamente em instantes.</value></data>
+</root>
