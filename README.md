@@ -24,6 +24,18 @@
 5. **Plano de desenvolvimento**: etapas ordenadas por pré-requisitos, com duração calculada pela sua disponibilidade e recursos de estudo. Exporta em **PDF** ou **Markdown**.
 6. **Privacidade**: sem cadastro. Os dados ficam ligados a um cookie de sessão e você pode apagar tudo com uma confirmação.
 
+## 📸 Telas
+
+Capturas da demo com o LLM mock (veja [Rodar com Docker](#-rodar-com-docker-demo-com-mock)).
+
+| Tela | Desktop (1280 px) | Celular (390 px) |
+|---|---|---|
+| Boas-vindas | <img src="docs/screenshots/1-boas-vindas-1280.png" width="420"> | <img src="docs/screenshots/1-boas-vindas-390.png" width="140"> |
+| Conversa, resposta chegando por streaming | <img src="docs/screenshots/2a-conversa-streaming-1280.png" width="420"> | <img src="docs/screenshots/2a-conversa-streaming-390.png" width="140"> |
+| Conversa | <img src="docs/screenshots/2b-conversa-1280.png" width="420"> | <img src="docs/screenshots/2b-conversa-390.png" width="140"> |
+| Recomendações | <img src="docs/screenshots/3-recomendacoes-1280.png" width="420"> | <img src="docs/screenshots/3-recomendacoes-390.png" width="140"> |
+| Mapa de habilidades | <img src="docs/screenshots/4-mapa-1280.png" width="420"> | <img src="docs/screenshots/4-mapa-390.png" width="140"> |
+| Plano de desenvolvimento | <img src="docs/screenshots/5-plano-1280.png" width="420"> | <img src="docs/screenshots/5-plano-390.png" width="140"> |
 ## 🏛️ Arquitetura
 
 ```
