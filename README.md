@@ -112,6 +112,23 @@ npm run dev
 
 No PowerShell, use `$env:VITE_API_TARGET = "https://localhost:7262"`. Abra `http://localhost:5173`.
 
+## 🐳 Rodar com Docker (demo com mock)
+
+Sobe banco, API e frontend com um **LLM falso e determinístico**, sem chave da Anthropic. Serve para ver o app funcionando, não para uso real.
+
+```bash
+docker compose up -d --build
+```
+
+Abra **http://localhost:8080**. Para parar: `docker compose down` (acrescente `-v` para apagar o banco).
+
+- O mock conduz as seis perguntas em ordem, lê as horas semanais do seu texto e recomenda áreas por palavras-chave (backend, frontend, dados). Selecionado por `Llm__Provedor=Mock`; o padrão continua sendo a Anthropic.
+- A API aplica as migrações ao subir (`Banco__AplicarMigracoes=true`), e o nginx do frontend faz proxy de `/api` no mesmo origin.
+- O nginx informa `X-Forwarded-Proto: https` e a API só confia nesse cabeçalho de redes privadas (`Proxy__ConfiarEmEncaminhamento=true`), para emitir o cookie `Secure` mesmo em `http://localhost`. Fora desse modo, o redirecionamento e o HSTS não mudam.
+- A senha do banco e a chave de criptografia do `docker-compose.yml` são **somente para demonstração**.
+- **Safari** não aceita cookie `Secure` em `http://localhost`, então a sessão não persiste nele. Use Chrome ou Firefox.
+- Capturas de tela: `cd frontend && node scripts/capturar-telas.mjs` (grava em `docs/screenshots/`).
+
 ## 🧪 Testes
 
 ```bash

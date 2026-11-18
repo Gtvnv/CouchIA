@@ -1,0 +1,58 @@
+# Demo local do CouchIA com LLM falso (mock): não precisa de chave da Anthropic.
+#   docker compose up -d --build   ->   http://localhost:8080
+#
+# ATENÇÃO: tudo aqui é SOMENTE PARA DEMONSTRAÇÃO (senha, chave de criptografia, mock, migrações no boot,
+# confiança em proxy). Não use esta configuração em produção.
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: couchia
+      POSTGRES_USER: couchia
+      POSTGRES_PASSWORD: couchia-demo   # DEMO ONLY
+    volumes:
+      - couchia-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U couchia -d couchia"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  backend:
+    build:
+      context: ./backend
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ConnectionStrings__Default: "Host=db;Port=5432;Database=couchia;Username=couchia;Password=couchia-demo"
+      # DEMO ONLY: chave AES-256 fixa e pública (32 bytes em Base64). Nunca use em produção.
+      Criptografia__ChaveBase64: "REVNTy1PTkxZLWNvdWNoaWEtZGVtby1rZXktMzJCISE="
+      Llm__Provedor: Mock
+      Banco__AplicarMigracoes: "true"
+      # Atrás do nginx: aceita X-Forwarded-Proto/For somente de redes privadas (rede do Docker).
+      Proxy__ConfiarEmEncaminhamento: "true"
+      Proxy__RedesConfiaveis__0: 172.16.0.0/12
+      Proxy__RedesConfiaveis__1: 192.168.0.0/16
+      Proxy__RedesConfiaveis__2: 10.0.0.0/8
+    healthcheck:
+      # A imagem aspnet não tem curl: testa só se a porta aceita conexão.
+      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/8080'"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+      start_period: 10s
+
+  frontend:
+    build:
+      context: ./frontend
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+
+volumes:
+  couchia-pgdata:

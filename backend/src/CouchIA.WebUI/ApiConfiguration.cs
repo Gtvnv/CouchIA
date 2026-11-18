@@ -1,9 +1,11 @@
 using System.Globalization;
+using System.Net;
 using System.Threading.RateLimiting;
 using CouchIA.Application.Common.Localization;
 using CouchIA.Domain;
 using CouchIA.WebUI.Middleware;
 using CouchIA.WebUI.Sessao;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
@@ -29,12 +31,53 @@ public sealed class LimiteRequisicoesOptions
     public int LimitePorSessao { get; set; } = 40;
 }
 
+/// <summary>
+/// Opções de proxy reverso (seção <c>Proxy</c>). Desligado por padrão: sem proxy confiável, cabeçalhos
+/// <c>X-Forwarded-*</c> são ignorados. Ligado (ex.: demonstração com nginx), só são aceitos de <see cref="RedesConfiaveis"/>.
+/// </summary>
+public sealed class ProxyOptions
+{
+    public const string Secao = "Proxy";
+
+    public bool ConfiarEmEncaminhamento { get; set; }
+
+    /// <summary>Redes (CIDR) ou IPs de onde o proxy pode falar. Vazio mantém o padrão do framework (somente loopback).</summary>
+    public string[] RedesConfiaveis { get; set; } = Array.Empty<string>();
+}
+
 public static class ApiConfiguration
 {
     public static readonly CultureInfo CulturaPadrao = new("pt-BR");
 
+    public static bool ConfiaEmProxy(IConfiguration configuration) =>
+        configuration.GetSection(ProxyOptions.Secao).Get<ProxyOptions>()?.ConfiarEmEncaminhamento ?? false;
+
     public static IServiceCollection AddApi(this IServiceCollection services, IConfiguration configuration)
     {
+        if (ConfiaEmProxy(configuration))
+        {
+            var proxy = configuration.GetSection(ProxyOptions.Secao).Get<ProxyOptions>()!;
+            services.Configure<ForwardedHeadersOptions>(o =>
+            {
+                o.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+                o.ForwardLimit = 1;
+                if (proxy.RedesConfiaveis.Length == 0) return;
+
+                // Somente as redes informadas são confiáveis (substitui o padrão de loopback).
+                o.KnownProxies.Clear();
+                o.KnownNetworks.Clear();
+                foreach (var rede in proxy.RedesConfiaveis)
+                {
+                    var partes = rede.Split('/', 2);
+                    var ip = IPAddress.Parse(partes[0].Trim());
+                    if (partes.Length == 2)
+                        o.KnownNetworks.Add(new Microsoft.AspNetCore.HttpOverrides.IPNetwork(ip, int.Parse(partes[1], CultureInfo.InvariantCulture)));
+                    else
+                        o.KnownProxies.Add(ip);
+                }
+            });
+        }
+
         services.Configure<SessaoCookieOptions>(configuration.GetSection(SessaoCookieOptions.Secao));
         services.Configure<LimiteCorpoOptions>(configuration.GetSection(LimiteCorpoOptions.Secao));
         services.Configure<LimiteRequisicoesOptions>(configuration.GetSection(LimiteRequisicoesOptions.Secao));
@@ -129,6 +172,10 @@ public static class ApiConfiguration
     /// <summary>Pipeline da API, na ordem de segurança: erros, cabeçalhos, HTTPS/HSTS, CORS, cultura, sessão, limites.</summary>
     public static WebApplication UseApi(this WebApplication app)
     {
+        // Encaminhamento primeiro (somente se habilitado): esquema e IP reais precisam valer para HTTPS/HSTS, cookie e limite por IP.
+        if (ConfiaEmProxy(app.Configuration))
+            app.UseForwardedHeaders();
+
         // A cultura vem primeiro para que todas as mensagens (inclusive de erro) saiam em pt-BR.
         app.UseRequestLocalization();
         app.UseMiddleware<ExcecoesMiddleware>();

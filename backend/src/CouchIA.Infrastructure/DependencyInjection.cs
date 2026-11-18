@@ -23,7 +23,11 @@ public static class DependencyInjection
 
         services.TryAddSingleton(TimeProvider.System);
         services.AddCriptografiaCampo(configuration);
-        services.AddAnthropicLlmClient(configuration);
+        // Llm:Provedor = Mock troca o Anthropic por um LLM falso (demonstração local, sem chave).
+        if (configuration.UsaMock())
+            services.AddMockLlmClient(configuration);
+        else
+            services.AddAnthropicLlmClient(configuration);
         services.AddPersistencia(configuration);
         services.AddCatalogo(configuration);
         services.AddExportadores();
